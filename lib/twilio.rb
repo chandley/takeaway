@@ -1,12 +1,23 @@
 require 'twilio-ruby'
 
+TWILIO_SID  = 'AC75cb3ebe9902bee6bd1109e6b09a4e43'
+TWILIO_AUTH_TOKEN = 'd0f206f24814c8aa326bfaa7f6580cf8'
+TWILIO_PHONE_NUMBER = '+441484906117'
+RECEIVING_PHONE_NUMBER = '+447764615163'
+
 class Postbox
 
   def initialize
-    @account_sid = 'AC75cb3ebe9902bee6bd1109e6b09a4e43'
-    @auth_token = 'd0f206f24814c8aa326bfaa7f6580cf8'
+    @account_sid = TWILIO_SID
+    @auth_token = TWILIO_AUTH_TOKEN
     configure
   end
+
+  def post(message)
+    send_to_client(message_hash(message),@client)
+  end
+
+private
 
   def configure
     pre_configure_twilio
@@ -25,19 +36,19 @@ class Postbox
     @client = Twilio::REST::Client.new
   end
 
-  def send_message(message_hash)
-    @client.messages.create(message_hash)
+  def send_to_client(message_hash,client)
+    client.messages.create(message_hash)
   end
 
-  def message_hash 
+  def message_hash(message_string)
     {
-    from: '+441484906117',
-    to: '+447764615163',
-    body: 'Chris is skill in class'
+    from: TWILIO_PHONE_NUMBER ,
+    to: RECEIVING_PHONE_NUMBER ,
+    body: message_string
     }
   end
 
 end
 
 my_postbox = Postbox.new
-my_postbox.send_message(my_postbox.message_hash)
+my_postbox.post("what a lovely day")
