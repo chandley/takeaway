@@ -1,7 +1,7 @@
 require 'dish'
 
 describe Dish do
-  let(:dish) {Dish.new}
+  let(:dish) {Dish.new('kipper',10)}
 
     it 'has has a name' do
       expect(dish.name.is_a?(String)).to be(true)

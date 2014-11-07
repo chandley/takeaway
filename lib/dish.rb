@@ -1,11 +1,10 @@
+
 class Dish
 
-def name 
-  'kippers'
-end
+attr_reader :name, :price
 
-def price
-  10
+def initialize (name, price)
+  @name, @price = name, price
 end
 
 
