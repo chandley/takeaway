@@ -10,6 +10,8 @@ describe Order do
 
   it 'can add a dish' do
     order.choose(dish)
-    expect(order.dishes).to include(dish)
+    expect(order.dishes.keys).to include(dish)
   end
+
+
 end
