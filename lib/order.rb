@@ -9,4 +9,9 @@ class Order
     @dishes[dish] += 1
   end
 
+  def total_price
+    total = 0
+    dishes.each {|dish, quantity| total += dish.price * quantity}
+    total
+  end
 end
