@@ -7,10 +7,14 @@ class Menu
 
   def show
     puts 'Bill of Fayre'
-      dishes.each do | name, price |
-        puts "#{name}".ljust(25) + price.to_s.rjust(3)
-      end
+    dishes.each do | name, price |
+      puts "#{name}".ljust(25) + price.to_s.rjust(3)
     end
+  end
+
+  def include_dish?(dish_name)
+    @dishes.has_key?(dish_name)
+  end
 end
 
 menu = Menu.new
