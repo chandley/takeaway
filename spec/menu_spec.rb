@@ -1,11 +1,13 @@
 require 'menu'
 
 describe   Menu do
-  let(:menu) {Menu.new}
+  let(:kipper) {double :dish}
+  let(:menu) {Menu.new([kipper])}
   context 'basic properties' do
   
-    it 'has has at least one text dish name' do
-      expect(menu.dishes.keys.first.is_a?(String)).to be(true)
+    it 'has a dish' do
+      expect(menu.dishes).to include(kipper)
     end
+
   end
 end
