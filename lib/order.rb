@@ -16,6 +16,7 @@ class Order
     total
   end
 
+
   def show
     puts 'Your current order'
     dishes.each {|dish, quantity| show_line(dish, quantity)}
