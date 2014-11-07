@@ -16,6 +16,10 @@ class Order
     total
   end
 
+  def dispatch(postbox)
+     postbox.post("my messge")
+   end
+
 
   def show
     puts 'Your current order'

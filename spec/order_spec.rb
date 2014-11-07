@@ -4,6 +4,7 @@ describe Order do
   let(:order) {Order.new}
   let(:dish) {double :dish, price: 10}
   let(:expensive_dish) {double :dish, price: 50}
+  let(:postbox) {double :postbox}
 
 
   it 'starts empty' do
@@ -20,12 +21,17 @@ describe Order do
     expect(order.dishes[dish]).to eq(3)
   end
 
-  it 'can calculate a total price' do
-    
+  it 'can calculate a total price' do   
     order.choose(dish)
     order.choose(expensive_dish)
     expect(order.total_price).to eq(60)
   end
+
+  it 'can dispatch a message' do
+    expect(postbox).to receive(:post)
+    order.dispatch(postbox)
+  end
+
 
 
 end
