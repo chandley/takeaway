@@ -13,5 +13,9 @@ describe Order do
     expect(order.dishes.keys).to include(dish)
   end
 
+  it 'can add several of the same dish' do
+    3.times {order.choose(dish)}
+    expect(order.dishes[dish]).to eq(3)
+  end
 
 end
