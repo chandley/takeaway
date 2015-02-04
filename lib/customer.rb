@@ -7,9 +7,7 @@ attr_accessor :order
 
   def choose_item
     puts "pick an item from menu"
-    item_string = gets.chomp.downcase
-    
-    
+    item_string = gets.chomp.downcase  
   end
 
 end

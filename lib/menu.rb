@@ -13,7 +13,7 @@ class Menu
   end
 
   def include_dish?(dish_name)
-    @dishes.has_key?(dish_name)
+    @dishes.include? {|dish| dish.name = dish_name}
   end
 end
 
