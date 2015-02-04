@@ -10,9 +10,7 @@ describe   Menu do
     end
 
     it 'knows if a dish is on the menu' do
-      expect(menu.dishes).to receive(:has_key?)
-      menu.include_dish?('kipper')
+      expect(menu.include_dish?('kipper')).to be true
     end
-
   end
 end
