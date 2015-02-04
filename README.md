@@ -60,7 +60,8 @@ RECEIVING_PHONE_NUMBER
 
 ### To do
 
-
+* Get code coverage to work
+* Some class functionality is not complete
 
 ### Learning points
 * API call
